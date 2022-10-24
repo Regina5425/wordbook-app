@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.main-content {
+  display: flex;
+	justify-content: space-between;
+  gap: 30px;
+	padding: 10px 0;
+
+	&__info {
+		flex: 0 1 40%;
+	}
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: $fontTitle;
+  }
+
+  &__descr {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+	&__card {
+		flex: 1 1 60%;
+	}
+}

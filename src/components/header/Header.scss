@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.header {
+	flex: 0 0 auto;
+	margin-bottom: 15px;
+	padding: 5px 15px;
+	background-color: $transparent;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+	&__item:not(:last-child) {
+		margin-right: 7rem;
+	}
+
+  &__home {
+    width: 30px;
+    height: 30px;
+  }
+
+	&__btn {
+		padding: 10px 20px;
+		font-weight: 700;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			color: $hoverColor;
+		}
+
+		&:focus {
+			color: $hoverColor;
+			outline-color: $hoverColor;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+@import './../../styles/variables.scss';
+
+.footer {
+	flex: 0 0 auto;
+	margin-top: 15px;
+	padding: 5px 15px;
+	background-color: $transparent;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__link {
+		padding: 10px 20px;
+		font-weight: 700;
+		transition: all 0.3s ease-in-out;
+
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+
+		&:hover {
+			color: $hoverColor;
+		}
+
+		&:focus {
+			outline-color: $hoverColor;
+		}
+	}
+}

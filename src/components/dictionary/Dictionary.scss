@@ -1,0 +1,59 @@
+@import '../../styles/variables.scss';
+
+.dict {
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+	&__title {
+		margin-bottom: 15px;
+		font-size: $fontTitle;
+	}
+
+	&__wrapper {
+		padding: 15px 10px;
+		border-radius: $borderRadius;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		justify-items: center;
+		gap: 8px;
+	}
+
+	&__item {
+		align-self: center;
+	}
+
+	&__sub {
+		font-size: 22px;
+		font-weight: 700;
+	}
+
+	&__words {
+		display: block;
+		width: 100%;
+		padding: 8px 10px;
+		background-color: $transparent;
+		border-radius: $borderRadius;
+		text-align: center;
+	}
+	
+	&__input {
+		display: block;
+		width: 100%;
+		padding: 8px 10px;
+		border: none;
+		border-radius: $borderRadius;
+		background-color: $transparent;
+		text-align: center;
+
+		&:focus {
+			outline-color: $hoverColor;
+		}
+	}
+
+	&__edit {
+		background-color: $saveBG;
+	}
+}

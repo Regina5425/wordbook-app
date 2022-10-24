@@ -1,0 +1,38 @@
+@import "../../styles/variables.scss";
+
+.dict__btn {
+  display: block;
+  padding: 8px 10px;
+  width: 100%;
+  border: none;
+  border-radius: $borderRadius;
+  background-color: transparent;
+  cursor: pointer;
+	transition: all 0.3s ease-in-out;
+
+	&--yes {
+		background-color: $yes;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: $yesHover;
+		}
+	}
+
+	&--no {
+		background-color: $no;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: $noHover;
+		}
+	}
+
+	&:focus {
+		outline-color: $hoverColor;
+	}
+
+	&:hover {
+		color: $lightColor;
+	}
+}
