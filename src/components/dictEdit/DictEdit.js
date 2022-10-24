@@ -1,8 +1,9 @@
 import { ButtonSave, ButtonCancel } from "../buttons/Buttons";
 
-const DictEdit = () => {
+const DictEdit = (props) => {
+
   return (
-    <div className='dict__wrapper dict__edit'>
+    <div className='dict__wrapper dict__edit' edit={props.isEdit}>
       <ul className='dict__list'>
         <li className='dict__item'>
           <input type='text' className='dict__input' />

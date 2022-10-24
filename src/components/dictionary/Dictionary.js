@@ -1,10 +1,11 @@
 import DictWord from "../dictWord/DictWord";
 import DictEdit from "../dictEdit/DictEdit";
 import DictAdd from "../dictAdd/DictAdd";
-import './Dictionary.scss';
+import "./Dictionary.scss";
 
-const Dictionary = () => {
-	
+const Dictionary = (props) => {
+  const isEdit = props;
+
   return (
     <section className='dict'>
       <h2 className='dict__title'>Словарь</h2>
@@ -16,10 +17,10 @@ const Dictionary = () => {
           <li className='dict__item dict__sub'>Категория</li>
         </ul>
       </div>
-			<DictAdd/>
-			<DictWord/>
-			<DictEdit/>
-			{/* {isEdit ? <DictEdit/> : <DictWord/>} */}
+      <DictAdd />
+      <DictWord />
+      {isEdit ? <DictEdit edit={isEdit} /> : <DictWord />}
+      {/* {isEdit ? <DictWord edit={isEdit}/> : <DictEdit />} */}
     </section>
   );
 };
