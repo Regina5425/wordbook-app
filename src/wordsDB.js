@@ -1,0 +1,60 @@
+const wordsDB = [
+  {
+    id: "12211",
+    english: "read",
+    transcription: "[ riːd ]",
+    russian: "читать",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "12212",
+    english: "animal ",
+    transcription: "[ ˈæn.ɪ.məl ]",
+    russian: "животное",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "12516",
+    english: "dog",
+    transcription: "[dɒg]",
+    russian: "собака",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "12974",
+    english: " victory",
+    transcription: "[ˈvɪktərɪ]",
+    russian: "победа",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "12975",
+    english: "time",
+    transcription: "[taɪm]",
+    russian: "время",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "12977",
+    english: "winter",
+    transcription: "[ˈwɪntə]",
+    russian: "зима",
+    tags: "",
+    tags_json: "[]",
+  },
+  {
+    id: "13054",
+    english: "cat",
+    transcription: "[kæt]",
+    russian: "кошка",
+    tags: "",
+    tags_json: "[]",
+  },
+];
+
+export default wordsDB;
