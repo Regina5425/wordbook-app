@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.word-card {
+.word {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,31 +11,27 @@
 		margin-bottom: 15px;
 	}
 
-	&__btn {
+	&__card {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		gap: 20px;
 		width: 300px;
 		height: 300px;
-		padding: 0;
+		border: 2px solid $mainColor;
+		border-radius: $borderRadius;
+	}
+
+	&__word {
 		font-size: 48px;
 		font-weight: 700;
 		text-transform: uppercase;
 		text-align: center;
-		border: 2px solid $mainColor;
-		border-radius: $borderRadius;
-		background-color: transparent;
-		color: $mainColor;
-		transition: all 0.3s ease-in-out;
-		cursor: pointer;
+	}
 
-		&:hover {
-			border: 2px solid $hoverColor;
-			color: $hoverColor;
-		}
-
-		&:focus {
-			outline-color: $hoverColor;
-		}
+	&__pron {
+		margin-bottom: 20px;
+		font-size: 28px;
 	}
 }

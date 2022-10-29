@@ -1,59 +1,67 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .dict {
-	margin-top: 15px;
-	margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
-	&__title {
-		margin-bottom: 15px;
-		font-size: $fontTitle;
-	}
+  &__title {
+    margin-bottom: 15px;
+    font-size: $fontTitle;
+  }
 
-	&__wrapper {
-		padding: 15px 10px;
-		border-radius: $borderRadius;
-	}
+  &__wrapper {
+    padding: 15px 10px;
+    border-radius: $borderRadius;
+  }
 
-	&__list {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		justify-items: center;
-		gap: 8px;
-	}
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    gap: 8px;
 
-	&__item {
-		align-self: center;
-	}
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
 
-	&__sub {
-		font-size: 22px;
-		font-weight: 700;
-	}
+  &__item {
+    align-self: center;
+  }
 
-	&__words {
-		display: block;
-		width: 100%;
-		padding: 8px 10px;
-		background-color: $transparent;
-		border-radius: $borderRadius;
-		text-align: center;
-	}
-	
-	&__input {
-		display: block;
-		width: 100%;
-		padding: 8px 10px;
-		border: none;
-		border-radius: $borderRadius;
-		background-color: $transparent;
-		text-align: center;
+  &__sub {
+    font-size: 22px;
+    font-weight: 700;
+  }
 
-		&:focus {
-			outline-color: $hoverColor;
-		}
-	}
+  &__words {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    background-color: $transparent;
+    border-radius: $borderRadius;
+    text-align: center;
+  }
 
-	&__edit {
-		background-color: $saveBG;
-	}
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: $borderRadius;
+    background-color: $transparent;
+    text-align: center;
+
+    &:focus {
+      outline-color: $hoverColor;
+    }
+  }
+
+  &__edit {
+    background-color: $saveBG;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
 }

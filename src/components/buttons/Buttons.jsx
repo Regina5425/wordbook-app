@@ -1,34 +1,17 @@
 import './Buttons.scss';
 
-const ButtonEdit = () => {
+const Button = (props) => {
 	return (
-		<button className='dict__btn dict__btn--yes'>Редактировать</button>
+		<button {...props}></button>
 	)
 }
 
-const ButtonAdd = () => {
+const ButtonTrans = (props) => {
+	const {name} = props;
 	return (
-		<button className='dict__btn dict__btn--yes'>Добавить</button>
+		<button {...props} className='trans__btn'>{name}</button>
 	)
 }
 
-const ButtonSave = () => {
-	return (
-		<button className='dict__btn dict__btn--yes'>Сохранить</button>
-	)
-}
-
-const ButtonCancel = () => {
-	return (
-		<button className='dict__btn dict__btn--no'>Отмена</button>
-	)
-}
-
-const ButtonDel = () => {
-	return (
-		<button className='dict__btn dict__btn--no'>Удалить</button>
-	)
-}
-
-export {ButtonEdit, ButtonAdd, ButtonSave, ButtonCancel, ButtonDel};
+export {Button, ButtonTrans};
 

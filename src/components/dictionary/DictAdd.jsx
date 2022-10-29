@@ -1,4 +1,4 @@
-import {ButtonAdd, ButtonCancel} from '../buttons/Buttons';
+import { Button } from "../buttons/Buttons";
 
 const DictAdd = () => {
   return (
@@ -17,10 +17,10 @@ const DictAdd = () => {
           <input type='text' className='dict__input' />
         </li>
         <li className='dict__item'>
-          <ButtonAdd/>
+          <Button className='dict__btn dict__btn--yes'>Добавить</Button>
         </li>
         <li className='dict__item'>
-          <ButtonCancel/>
+          <Button className='dict__btn dict__btn--no'>Отмена</Button>
         </li>
       </ul>
     </div>
