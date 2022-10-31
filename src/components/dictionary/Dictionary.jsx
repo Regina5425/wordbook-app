@@ -1,32 +1,9 @@
-import DictWord from "./DictWord";
-import DictEdit from "./DictEdit";
+import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
-import { useState } from "react";
 import wordsDB from "./../../wordsDB";
 
 const Dictionary = (props) => {
-  const [isEdit, setIsEdit] = useState(false);
-  const [isClosed, setIsClosed] = useState(false);
-
-  //поменять значение state
-  const [isChanged, setIsChanged] = useState(false);
-
-  const editBlock = () => {
-    setIsEdit(!isEdit);
-  };
-
-  const closeBlock = () => {
-    setIsClosed(!isClosed);
-    setIsEdit(!isEdit);
-  };
-
-  //обработчик на инпуты
-  const changeValue = () => {
-    setIsChanged(!isChanged);
-    console.log(isChanged);
-  };
-
   return (
     <section className='dict'>
       <h2 className='dict__title'>Словарь</h2>
@@ -39,48 +16,15 @@ const Dictionary = (props) => {
         </ul>
       </div>
       <DictAdd />
-      {isEdit
-        ? wordsDB.map((word) => (
-            <DictEdit
-              key={word.id}
-              changeValue={changeValue}
-              cancel={closeBlock}
-              english={word.english}
-              transcription={word.transcription}
-              russian={word.russian}
-              tags={word.tags}
-            />
-          ))
-        : wordsDB.map((word) => (
-            <DictWord
-              key={word.id}
-              edit={editBlock}
-              english={word.english}
-              transcription={word.transcription}
-              russian={word.russian}
-              tags={word.tags}
-            />
-          ))}
-
-      {/* рендер только одного комопнента */}
-      {/* {isEdit ? (
-        <DictEdit
-					changeValue={changeValue}
-          cancel={closeBlock}
-          english='read'
-          transcription='[ riːd ]'
-          russian='читать'
-          tags='глагол'
+      {wordsDB.map((word) => (
+        <DictWords
+          key={word.id}
+          english={word.english}
+          transcription={word.transcription}
+          russian={word.russian}
+          tags={word.tags}
         />
-      ) : (
-        <DictWord
-          edit={editBlock}
-          english='read'
-          transcription='[ riːd ]'
-          russian='читать'
-          tags='глагол'
-        />
-      )} */}
+      ))}
     </section>
   );
 };
