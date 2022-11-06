@@ -1,8 +1,8 @@
 import React from "react";
 import './Translate.scss';
 
-const Translate = (props) => {
-  return <p className='trans'>Слово</p>;
+const Translate = ({russian}) => {
+  return <p className='trans'>{russian}</p>;
 };
 
 export default Translate;

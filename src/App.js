@@ -3,6 +3,7 @@ import MainPage from './components/mainPage/MainPage';
 import Dictionary from "./components/dictionary/Dictionary";
 import Footer from "./components/footer/Footer";
 import './styles/App.scss';
+import TrainPage from "./components/trainPage/TrainPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <section className='main'>
 				<MainPage/>
 				<Dictionary/>
+				<TrainPage/>
 			</section>
       <Footer />
     </div>

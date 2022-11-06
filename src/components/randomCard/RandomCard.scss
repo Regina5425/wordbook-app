@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.random {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+	gap: 30px;
+
+	&__title {
+		font-size: $fontTitle;
+    font-weight: 700;
+    margin-bottom: 15px;
+	}
+}

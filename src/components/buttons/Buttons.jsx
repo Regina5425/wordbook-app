@@ -1,17 +1,19 @@
 import './Buttons.scss';
+import arrow from '../../img/arrow.svg';
 
-const Button = (props) => {
+const Button = ({children, ...props}) => {
 	return (
-		<button {...props}></button>
+		<button {...props}>{children}</button>
 	)
 }
 
-const ButtonTrans = (props) => {
-	const {name} = props;
+const ButtonChangeCard = (props) => {
 	return (
-		<button {...props} className='trans__btn'>{name}</button>
+		<button {...props}>
+			<img src={arrow} alt='arrow'/>
+		</button>
 	)
 }
 
-export {Button, ButtonTrans};
+export {Button, ButtonChangeCard};
 

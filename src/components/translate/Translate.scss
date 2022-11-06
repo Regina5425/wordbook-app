@@ -7,4 +7,15 @@
 	border: 2px solid $mainColor;
   border-radius: $borderRadius;
   color: $mainColor;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+
+	&:hover {
+		border: 2px solid $hoverColor;
+		color: $hoverColor;
+	}
+
+	&:focus {
+		outline-color: $hoverColor;
+	}
 }

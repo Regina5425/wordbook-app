@@ -22,7 +22,7 @@ const wordsDB = [
   },
   {
     id: "4",
-    english: " victory",
+    english: "victory",
     transcription: "[ˈvɪktərɪ]",
     russian: "победа",
     tags: "общие",
@@ -33,20 +33,6 @@ const wordsDB = [
     transcription: "[taɪm]",
     russian: "время",
     tags: "время",
-  },
-  {
-    id: "6",
-    english: "winter",
-    transcription: "[ˈwɪntə]",
-    russian: "зима",
-    tags: "погода, климат",
-  },
-  {
-    id: "7",
-    english: "cat",
-    transcription: "[kæt]",
-    russian: "кошка",
-    tags: "животные",
   },
 ];
 

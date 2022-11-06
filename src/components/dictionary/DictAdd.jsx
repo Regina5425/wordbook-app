@@ -1,7 +1,7 @@
 import { Button } from "../buttons/Buttons";
 import WordEdit from "./WordEdit";
 
-const DictAdd = () => {
+const DictAdd = (props) => {
   return (
     <div className='dict__wrapper'>
       <ul className='dict__list'>

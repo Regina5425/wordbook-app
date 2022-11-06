@@ -1,4 +1,4 @@
-import WordCard from "../wordCard/WordCard";
+import RandomCard from "../randomCard/RandomCard";
 import "./MainPage.scss";
 
 const MainPage = () => {
@@ -19,7 +19,7 @@ const MainPage = () => {
         </p>
       </section>
       <section className='main-content__card'>
-				<WordCard/>
+				<RandomCard/>
 			</section>
     </div>
   );

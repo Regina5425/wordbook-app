@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import "./variables.scss";
 
 html {
@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: $fontSize;
   font-weight: 400;
   background-color: #8ec5fc;

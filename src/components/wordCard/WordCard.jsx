@@ -1,27 +1,33 @@
 import { useState } from "react";
 import Translate from "../translate/Translate";
-import { ButtonTrans } from "../buttons/Buttons";
+import {Button} from '../buttons/Buttons';
+// import { ButtonTrans } from "../buttons/Buttons";
 import "./WordCard.scss";
 
-const WordCard = () => {
+const WordCard = ({english, transcription, russian, className}) => {
+
   const [isShowed, setIsShowed] = useState(false);
 
   const changeShow = () => {
-    setIsShowed(true);
+    setIsShowed(!isShowed);
   };
 
   return (
-    <div className='word'>
-      <h2 className='word__random'>Слово дня</h2>
-      <div className='word__card'>
-        <h2 className='word__word'>Word</h2>
-        <p className='word__pron'>[wərd]</p>
-        <div onClick={changeShow}>
-          {isShowed ? <Translate /> : <ButtonTrans name='Перевод' />}
-        </div>
+    <div className={className}>
+      <h2 className='word__word'>{english}</h2>
+      <p className='word__pron'>{transcription}</p>
+      <div onClick={changeShow}>
+        {isShowed ? <Translate russian={russian} /> : <Button className='trans__btn'>Перевод</Button>}
       </div>
     </div>
   );
 };
+
+WordCard.defaultProps = {
+	english: 'universe',
+	transcription: '[ˈjuːnɪvɜːs]',
+	russian: 'вселенная',
+	className: 'word'
+}
 
 export default WordCard;
