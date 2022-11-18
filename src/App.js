@@ -4,6 +4,9 @@ import Dictionary from "./components/dictionary/Dictionary";
 import Footer from "./components/footer/Footer";
 import './styles/App.scss';
 import TrainPage from "./components/trainPage/TrainPage";
+import wordsDB from "./wordsDB";
+
+const data = wordsDB;
 
 function App() {
   return (
@@ -11,8 +14,8 @@ function App() {
       <Header />
       <section className='main'>
 				<MainPage/>
-				<Dictionary/>
-				<TrainPage/>
+				<Dictionary data={data}/>
+				<TrainPage data={data}/>
 			</section>
       <Footer />
     </div>

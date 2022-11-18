@@ -1,9 +1,18 @@
 import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
-import wordsDB from "./../../wordsDB";
 
 const Dictionary = (props) => {
+  const wordsDictionary = props.data.map((word) => (
+    <DictWords
+      key={word.id}
+      english={word.english}
+      transcription={word.transcription}
+      russian={word.russian}
+      tags={word.tags}
+    />
+  ));
+
   return (
     <section className='dict'>
       <h2 className='dict__title'>Словарь</h2>
@@ -16,15 +25,7 @@ const Dictionary = (props) => {
         </ul>
       </div>
       <DictAdd />
-      {wordsDB.map((word) => (
-        <DictWords
-          key={word.id}
-          english={word.english}
-          transcription={word.transcription}
-          russian={word.russian}
-          tags={word.tags}
-        />
-      ))}
+      {wordsDictionary}
     </section>
   );
 };

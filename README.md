@@ -1,1 +1,7 @@
-# WordBook React App
+# WordBook
+
+Приложение по запоминанию иностранных слов
+
+В разработке
+
+Стек: React, API, JSON

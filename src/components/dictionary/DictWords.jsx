@@ -22,10 +22,10 @@ const DictWord = (props) => {
     <div className='dict__wrapper'>
         {isEdited ? (
           <ul className='dict__list'>
-            <WordEdit />
-            <WordEdit />
-            <WordEdit />
-            <WordEdit />
+            <WordEdit name={english}/>
+            <WordEdit name={transcription}/>
+            <WordEdit name={russian}/>
+            <WordEdit name={tags}/>
             <Button className='dict__btn dict__btn--yes'>Сохранить</Button>
             <Button onClick={closeBlock} className='dict__btn dict__btn--no'>
               Отмена

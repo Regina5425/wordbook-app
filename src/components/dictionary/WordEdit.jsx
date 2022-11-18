@@ -12,7 +12,7 @@ const WordEdit = (props) => {
 
   return (
     <li className='dict__item'>
-      <input onChange={changeValue} type='text' className='dict__input' />
+      <input onChange={changeValue} type='text' className='dict__input' defaultValue={props.name} />
     </li>
   );
 };
