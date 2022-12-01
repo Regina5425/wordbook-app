@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 
 const WordEdit = (props) => {
   //поменять значение state
@@ -12,7 +12,7 @@ const WordEdit = (props) => {
 
   return (
     <li className='dict__item'>
-      <input onChange={changeValue} type='text' className='dict__input' defaultValue={props.name} />
+      <input onChange={changeValue} type='text' className='dict__input dict__input--edit' value={props.name} />
     </li>
   );
 };

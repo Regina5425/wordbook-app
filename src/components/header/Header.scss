@@ -1,16 +1,26 @@
 @import '../../styles/variables.scss';
 
 .header {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
 	flex: 0 0 auto;
 	margin-bottom: 15px;
 	padding: 5px 15px;
-	background-color: $transparent;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.4);
+	transition: all 0.4s ease-in-out;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.7);
+		color: $hoverColor;
+	}
 	
   &__list {
     display: flex;
     align-items: center;
+		margin: 0 auto;
+		padding: 0 15px;
+		max-width: 1300px;
   }
 
 	&__item:not(:last-child) {
@@ -27,11 +37,9 @@
 		font-weight: 700;
 		border: none;
 		background-color: transparent;
-		cursor: pointer;
-		transition: all 0.3s ease-in-out;
 
 		&:hover {
-			color: $hoverColor;
+			text-decoration: underline;
 		}
 
 		&:focus {

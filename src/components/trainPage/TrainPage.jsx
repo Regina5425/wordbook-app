@@ -1,7 +1,8 @@
 import { ButtonChangeCard } from "../buttons/Buttons";
 import WordCard from "../wordCard/WordCard";
-import "./TrainPage.scss";
 import { useState } from "react";
+
+import "./TrainPage.scss";
 
 const TrainPage = (props) => {
   const { initial = 1 } = props;

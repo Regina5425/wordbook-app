@@ -26,6 +26,9 @@ const Dictionary = (props) => {
       </div>
       <DictAdd />
       {wordsDictionary}
+			{/* для проверки фиксированной шапки */}
+			{wordsDictionary}
+			{wordsDictionary}
     </section>
   );
 };

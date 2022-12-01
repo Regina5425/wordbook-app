@@ -47,13 +47,18 @@
     display: block;
     width: 100%;
     padding: 8px 10px;
-    border: none;
+		border: none;
     border-radius: $borderRadius;
     background-color: $transparent;
     text-align: center;
+		color: $mainColor;
 
-    &:focus {
-      outline-color: $hoverColor;
-    }
+		&--edit {
+			border: 2px solid $mainColor;
+		}
+
+		&:focus {
+			outline-color: $mainColor;
+		}
   }
 }

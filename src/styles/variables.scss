@@ -4,11 +4,12 @@ $fontTitle: 28px;
 $borderRadius: 15px;
 
 // colors
-$mainColor: #100f0f;
-$hoverColor: #5a2edd;
-$lightColor: #fff;
+$mainColor: rgb(218, 218, 218);
+$colorBG: #3c3584;
+$hoverColor: #28254c;
 $transparent: rgba(255, 255, 255, 0.3);
-$yes: rgba(90, 46, 221, 0.5);
-$no: rgba(188, 44, 114, 0.5);
-$noHover: #bc2c72;
-$saveBG: rgba(52, 82, 235, 0.5);
+$yes: #9164C0;
+$yesHover: #572E80;
+$no: #638EBD;
+$noHover: #2D527C;
+$ghostPurple: rgba(51, 47, 99, 0.5);
