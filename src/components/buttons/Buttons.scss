@@ -54,7 +54,9 @@
 	}
 
 	&:focus {
-		outline-color: $hoverColor;
+		outline: none;
+		// border: 5px solid $mainColor;
+		border: 5px solid $yes;
 	}
 }
 

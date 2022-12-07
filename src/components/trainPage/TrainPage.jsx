@@ -7,6 +7,7 @@ import "./TrainPage.scss";
 const TrainPage = (props) => {
   const { initial = 1 } = props;
   const [index, setIndex] = useState(initial);
+  const [countWord, setCountWord] = useState(0);
 
   const getNextCard = () => {
     if (index === props.data.length) {
@@ -24,6 +25,10 @@ const TrainPage = (props) => {
     }
   };
 
+  const incCountWord = () => {
+    setCountWord((countWord) => countWord + 1);
+  };
+
   const wordsElements = props.data.map((word, i) => (
     <WordCard
       key={word.id}
@@ -33,11 +38,13 @@ const TrainPage = (props) => {
       className={
         index === i + 1 ? "word word--active fade" : "word word--hidden"
       }
+      incCountWord={incCountWord}
     />
   ));
 
   return (
     <div className='train'>
+      <div className='train__count'>Изучено слов: {countWord}</div>
       <div className='train__page'>
         <ButtonChangeCard
           onClick={getPrevCard}

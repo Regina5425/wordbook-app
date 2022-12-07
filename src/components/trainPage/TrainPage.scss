@@ -7,6 +7,12 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 
+	&__count {
+		margin-bottom: 10px;
+		font-size: $fontSize;
+		font-weight: 700;
+	}
+
   &__page {
     margin-top: 15px;
     margin-bottom: 15px;
