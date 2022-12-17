@@ -13,9 +13,8 @@ const WordCard = ({english, transcription, russian, className, incCountWord}) =>
   };
 
 	useEffect(() => {
-		console.log('focused')
 		myRef.current.focus();
-	})
+	}, [])
 
   return (
     <div className={className}>

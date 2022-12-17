@@ -37,6 +37,11 @@
   }
 }
 
+.disabled {
+	background-color: $yes;
+	cursor: initial;
+}
+
 .trans__btn {
   padding: 5px 15px;
   border: 2px solid $mainColor;

@@ -3,6 +3,7 @@ import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
 
 const Dictionary = (props) => {
+
   const wordsDictionary = props.data.map((word) => (
     <DictWords
       key={word.id}
@@ -26,9 +27,6 @@ const Dictionary = (props) => {
       </div>
       <DictAdd />
       {wordsDictionary}
-			{/* для проверки фиксированной шапки */}
-			{wordsDictionary}
-			{wordsDictionary}
     </section>
   );
 };

@@ -25,9 +25,9 @@
     }
   }
 
-  &__item {
-    align-self: center;
-  }
+  // &__item {
+  //   align-self: center;
+  // }
 
   &__sub {
     font-size: 22px;
@@ -57,8 +57,12 @@
 			border: 2px solid $mainColor;
 		}
 
+		&--error {
+			border: 2px solid #ff0000;
+		}
+
 		&:focus {
-			outline-color: $mainColor;
+			outline: none;
 		}
   }
 }
