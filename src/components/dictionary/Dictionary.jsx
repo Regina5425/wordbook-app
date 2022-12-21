@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
+import { DataContext } from "../app/App";
 
 const Dictionary = (props) => {
 
-  const wordsDictionary = props.data.map((word) => (
+	const context = useContext(DataContext);
+
+  const wordsDictionary = context.map((word) => (
     <DictWords
       key={word.id}
       english={word.english}
