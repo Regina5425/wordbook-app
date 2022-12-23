@@ -2,11 +2,10 @@ import { useContext } from "react";
 import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
-import { DataContext } from "../app/App";
+import { DataContext } from "../context/context";
 
 const Dictionary = (props) => {
-
-	const context = useContext(DataContext);
+  const context = useContext(DataContext);
 
   const wordsDictionary = context.map((word) => (
     <DictWords
@@ -17,6 +16,8 @@ const Dictionary = (props) => {
       tags={word.tags}
     />
   ));
+
+  console.log("render dict");
 
   return (
     <section className='dict'>

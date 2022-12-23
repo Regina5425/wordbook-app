@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ButtonChangeCard } from "../buttons/Buttons";
 import WordCard from "../wordCard/WordCard";
 import { useState } from "react";
-import { DataContext } from "../app/App";
+import { DataContext } from "../context/context";
 
 import "./TrainPage.scss";
 
@@ -11,7 +11,7 @@ const TrainPage = (props) => {
   const [index, setIndex] = useState(initial);
   const [countWord, setCountWord] = useState(0);
 
-	const context = useContext(DataContext);
+  const context = useContext(DataContext);
 
   const getNextCard = () => {
     if (index === context.length) {
@@ -45,6 +45,8 @@ const TrainPage = (props) => {
       incCountWord={incCountWord}
     />
   ));
+
+  console.log("render train");
 
   return (
     <div className='train'>
