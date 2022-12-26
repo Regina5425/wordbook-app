@@ -2,22 +2,25 @@ import { useContext } from "react";
 import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
-import { DataContext } from "../context/context";
+import { DataContext } from "../../context/context";
+import { useState } from "react";
 
 const Dictionary = (props) => {
   const context = useContext(DataContext);
+	const [data, setData] = useState(context);
 
-  const wordsDictionary = context.map((word) => (
+  const wordsDictionary = data.map((word) => (
     <DictWords
       key={word.id}
+      id={word.id}
       english={word.english}
       transcription={word.transcription}
       russian={word.russian}
       tags={word.tags}
+      onDelete={props.onDelete}
+			saveChanges={props.saveChanges}
     />
   ));
-
-  console.log("render dict");
 
   return (
     <section className='dict'>
@@ -30,7 +33,7 @@ const Dictionary = (props) => {
           <li className='dict__item dict__sub'>Категория</li>
         </ul>
       </div>
-      <DictAdd />
+      <DictAdd addNewWord={props.addNewWord}/>
       {wordsDictionary}
     </section>
   );

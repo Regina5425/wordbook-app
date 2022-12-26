@@ -54,7 +54,5 @@ export const useRequest = () => {
     []
   );
 
-  // const clearError = useCallback(() => setError(null), []);
-
   return { isLoading, request, error };
 };

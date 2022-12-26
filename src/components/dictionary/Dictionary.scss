@@ -25,10 +25,6 @@
     }
   }
 
-  // &__item {
-  //   align-self: center;
-  // }
-
   &__sub {
     font-size: 22px;
     font-weight: 700;
@@ -62,7 +58,7 @@
 		}
 
 		&:focus {
-			outline: none;
+			outline-color: $mainColor;
 		}
   }
 }

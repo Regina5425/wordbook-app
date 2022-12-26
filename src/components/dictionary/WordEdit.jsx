@@ -5,8 +5,8 @@ const WordEdit = (props) => {
   const [value, setValue] = useState({
     english: props.words.english,
     transcription: props.words.transcription,
-    tags: props.words.tags,
     russian: props.words.russian,
+    tags: props.words.tags,
   });
   const [invalid, setInvalid] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -16,8 +16,8 @@ const WordEdit = (props) => {
       if (
         value.english === "" ||
         value.transcription === "" ||
-        value.tags === "" ||
-        value.russian === ""
+        value.russian === "" ||
+        value.tags === ""
       ) {
         setInvalid(true);
         setDisabled(true);
@@ -26,7 +26,7 @@ const WordEdit = (props) => {
         setDisabled(false);
       }
     },
-    [value.english, value.transcription, value.tags, value.russian]
+    [value.english, value.transcription, value.russian, value.tags]
   );
 
   const onChangeValue = (e) => {
@@ -41,13 +41,7 @@ const WordEdit = (props) => {
     if (invalid) {
       console.log("error");
     } else {
-      console.log("send");
-      console.log({
-        "english:": value.english,
-        "transcription:": value.transcription,
-        "tags:": value.tags,
-        "russian:": value.russian,
-      });
+			props.saveChanges(props.wordId, value);
       props.closeBlock();
     }
   };
@@ -79,17 +73,6 @@ const WordEdit = (props) => {
       <input
         onChange={onChangeValue}
         type='text'
-        name='tags'
-        className={
-          invalid
-            ? "dict__input dict__input--error"
-            : "dict__input dict__input--edit"
-        }
-        value={value.tags}
-      />
-      <input
-        onChange={onChangeValue}
-        type='text'
         name='russian'
         className={
           invalid
@@ -97,6 +80,17 @@ const WordEdit = (props) => {
             : "dict__input dict__input--edit"
         }
         value={value.russian}
+      />
+      <input
+        onChange={onChangeValue}
+        type='text'
+        name='tags'
+        className={
+          invalid
+            ? "dict__input dict__input--error"
+            : "dict__input dict__input--edit"
+        }
+        value={value.tags}
       />
       <Button
         className={disabled ? "dict__btn disabled" : "dict__btn dict__btn--yes"}

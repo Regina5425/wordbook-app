@@ -5,8 +5,8 @@ import Dictionary from "../dictionary/Dictionary";
 import TrainPage from "../trainPage/TrainPage";
 import Page404 from "../404page/404";
 import Loader from "../loader/Loader";
-import { useRequest } from "../request/request";
-import { DataContext } from "../context/context";
+import { useRequest } from "../../request/request";
+import { DataContext } from "../../context/context";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const AppRouter = () => {
@@ -18,16 +18,52 @@ const AppRouter = () => {
   //fetch
   useEffect(
     () => async () => {
-      const response = await request(
-        "http://itgirlschool.justmakeit.ru/api/words"
-      );
+      const response = await request("/api/words");
       const DataContext = await response.json();
       setDataWords(DataContext);
-      console.log("render");
       // eslint-disable-next-line
     },
     [request]
   );
+
+  const addNewWord = async (newWord) => {
+    const response = await request(
+      "/api/words/add",
+      "POST",
+      JSON.stringify(newWord)
+    );
+    const result = await response.json();
+    console.log(response, "Добавлено");
+    setDataWords(...dataWords, dataWords.push(result));
+  };
+
+  const deleteWord = (id) => {
+    const newDataWords = dataWords.filter((item) => item.id !== id);
+    setDataWords(newDataWords);
+    request(`/api/words/${id}/delete`, "POST", JSON.stringify(newDataWords))
+      .then((response) => console.log(response, "Удалено"))
+      .catch((e) => console.log(e));
+  };
+
+  const saveChanges = async (id, value) => {
+    const response = await request(
+      `/api/words/${id}/update`,
+      "POST",
+      JSON.stringify(value)
+    );
+    const result = await response.json();
+    console.log(response, "Изменено");
+
+    function getNew() {
+      const index = dataWords.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        dataWords[index] = result;
+      }
+      return dataWords;
+    }
+    const newWordData = getNew();
+    setDataWords(...newWordData);
+  };
 
   return (
     <DataContext.Provider value={dataWords}>
@@ -35,11 +71,37 @@ const AppRouter = () => {
         <Route path='/' element={<MainPage />} />
         <Route
           path='/dictionary'
-          element={[isLoading ? <Loader /> : <Dictionary /> && error ? <ErrorMessage/> : <Dictionary />]}
+          element={[
+            isLoading ? (
+              <Loader />
+            ) : (
+                <Dictionary
+                  addNewWord={addNewWord}
+                  onDelete={deleteWord}
+                  saveChanges={saveChanges}
+                />
+              ) && error ? (
+              <ErrorMessage />
+            ) : (
+              <Dictionary
+                addNewWord={addNewWord}
+                onDelete={deleteWord}
+                saveChanges={saveChanges}
+              />
+            ),
+          ]}
         />
         <Route
           path='/training'
-          element={[isLoading ? <Loader /> : <TrainPage /> && error ? <ErrorMessage/> : <TrainPage />]}
+          element={[
+            isLoading ? (
+              <Loader />
+            ) : <TrainPage /> && error ? (
+              <ErrorMessage />
+            ) : (
+              <TrainPage />
+            ),
+          ]}
         />
         <Route path='*' element={<Page404 />} />
       </Routes>
