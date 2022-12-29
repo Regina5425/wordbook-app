@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "../mainPage/MainPage";
 import Dictionary from "../dictionary/Dictionary";
@@ -10,18 +10,16 @@ import { DataContext } from "../../context/context";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const AppRouter = () => {
-  const context = useContext(DataContext);
+  // const context = useContext(DataContext);
 
   const { request, isLoading, error } = useRequest();
-  const [dataWords, setDataWords] = useState(context);
+  const [dataWords, setDataWords] = useState([]);
 
-  //fetch
   useEffect(
     () => async () => {
       const response = await request("/api/words");
       const DataContext = await response.json();
       setDataWords(DataContext);
-      // eslint-disable-next-line
     },
     [request]
   );
@@ -62,7 +60,7 @@ const AppRouter = () => {
       return dataWords;
     }
     const newWordData = getNew();
-    setDataWords(...newWordData);
+    setDataWords([...newWordData]);
   };
 
   return (
@@ -71,7 +69,7 @@ const AppRouter = () => {
         <Route path='/' element={<MainPage />} />
         <Route
           path='/dictionary'
-          element={[
+          element={
             isLoading ? (
               <Loader />
             ) : (
@@ -88,20 +86,20 @@ const AppRouter = () => {
                 onDelete={deleteWord}
                 saveChanges={saveChanges}
               />
-            ),
-          ]}
+            )
+          }
         />
         <Route
           path='/training'
-          element={[
+          element={
             isLoading ? (
               <Loader />
             ) : <TrainPage /> && error ? (
               <ErrorMessage />
             ) : (
               <TrainPage />
-            ),
-          ]}
+            )
+          }
         />
         <Route path='*' element={<Page404 />} />
       </Routes>

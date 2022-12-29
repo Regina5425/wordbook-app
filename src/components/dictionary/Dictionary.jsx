@@ -3,13 +3,13 @@ import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
 import { DataContext } from "../../context/context";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Dictionary = (props) => {
   const context = useContext(DataContext);
-	const [data, setData] = useState(context);
+	// const [data, setData] = useState(context);
 
-  const wordsDictionary = data.map((word) => (
+  const wordsDictionary = context.map((word) => (
     <DictWords
       key={word.id}
       id={word.id}

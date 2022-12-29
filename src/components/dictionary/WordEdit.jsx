@@ -41,7 +41,7 @@ const WordEdit = (props) => {
     if (invalid) {
       console.log("error");
     } else {
-			props.saveChanges(props.wordId, value);
+      props.saveChanges(props.wordId, value);
       props.closeBlock();
     }
   };

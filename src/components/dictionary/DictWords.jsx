@@ -19,7 +19,12 @@ const DictWords = (props) => {
   return (
     <div className='dict__wrapper'>
       {isEdited ? (
-        <WordEdit words={props} wordId={id} saveChanges={props.saveChanges} closeBlock={onCloseBlock} />
+        <WordEdit
+          words={props}
+          wordId={id}
+          saveChanges={props.saveChanges}
+          closeBlock={onCloseBlock}
+        />
       ) : (
         <ul className='dict__list'>
           <Words name={english} />
