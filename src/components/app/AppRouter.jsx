@@ -10,8 +10,6 @@ import { DataContext } from "../../context/context";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const AppRouter = () => {
-  // const context = useContext(DataContext);
-
   const { request, isLoading, error } = useRequest();
   const [dataWords, setDataWords] = useState([]);
 
@@ -32,7 +30,7 @@ const AppRouter = () => {
     );
     const result = await response.json();
     console.log(response, "Добавлено");
-    setDataWords(...dataWords, dataWords.push(result));
+    setDataWords([...dataWords, result]);
   };
 
   const deleteWord = (id) => {
