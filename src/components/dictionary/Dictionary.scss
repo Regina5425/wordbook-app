@@ -25,10 +25,6 @@
     }
   }
 
-  // &__item {
-  //   align-self: center;
-  // }
-
   &__sub {
     font-size: 22px;
     font-weight: 700;
@@ -47,22 +43,22 @@
     display: block;
     width: 100%;
     padding: 8px 10px;
-		border: none;
+    border: none;
     border-radius: $borderRadius;
     background-color: $transparent;
     text-align: center;
-		color: $mainColor;
+    color: $mainColor;
 
-		&--edit {
-			border: 2px solid $mainColor;
-		}
+    &--edit {
+      border: 2px solid $mainColor;
+    }
 
-		&--error {
-			border: 2px solid #ff0000;
-		}
+    &--error {
+      border: 2px solid #ff0000;
+    }
 
-		&:focus {
-			outline: none;
-		}
+    &:focus {
+      outline-color: $mainColor;
+    }
   }
 }
