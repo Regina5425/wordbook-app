@@ -56,9 +56,9 @@
     &--error {
       border: 2px solid #ff0000;
     }
-
-    &:focus {
-      outline-color: $mainColor;
-    }
+    
+		&:focus {
+			outline-color: $mainColor;
+		}
   }
 }
