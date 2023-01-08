@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { runInAction, makeAutoObservable } from "mobx";
 import { request } from "../request/request";
 
 class WordStore {
@@ -29,7 +29,11 @@ class WordStore {
   getAllDataWords = async () => {
     const response = await request("/api/words");
     const data = await response.json();
-    this.dataWords = [...this.dataWords, ...data];
+    runInAction(() => {
+      this.dataWords = [...this.dataWords, ...data];
+    });
+    console.log("fetched");
+    console.log(data);
   };
 
   addNewWord = async (newWord) => {

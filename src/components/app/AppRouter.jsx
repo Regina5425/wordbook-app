@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { observer } from "mobx-react-lite";
+import { observer } from "mobx-react";
 import MainPage from "../mainPage/MainPage";
 import Dictionary from "../dictionary/Dictionary";
 import TrainPage from "../trainPage/TrainPage";
@@ -9,7 +9,6 @@ import Loader from "../loader/Loader";
 // import { useRequest } from "../../request/request";
 // import { DataContext } from "../../context/context";
 import ErrorMessage from "../errorMessage/ErrorMessage";
-import WordStore from "../../store";
 
 // const AppRouter = () => {
 //   const { request, isLoading, error } = useRequest();
@@ -107,14 +106,14 @@ import WordStore from "../../store";
 //   );
 // };
 
-const AppRouter = observer(() => {
+const AppRouter = observer(({ rootStore }) => {
   // const { request, isLoading, error } = useRequest();
   // const [dataWords, setDataWords] = useState([]);
-	const store = new WordStore();
-  const { isLoading, error, getAllDataWords } = store;
+
+  const { isLoading, error, getAllDataWords } = rootStore;
 
   useEffect(() => {
-		getAllDataWords();
+    getAllDataWords();
     // eslint-disable-next-line
   }, []);
 

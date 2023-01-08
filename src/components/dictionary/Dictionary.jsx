@@ -3,9 +3,7 @@ import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
 // import { DataContext } from "../../context/context";
-import { observer } from "mobx-react-lite";
-import WordStore from "../../store";
-import { useEffect } from "react";
+import { observer } from "mobx-react";
 
 // const Dictionary = (props) => {
 //   const context = useContext(DataContext);
@@ -40,15 +38,10 @@ import { useEffect } from "react";
 //   );
 // };
 
-const Dictionary = observer((props) => {
-  const store = new WordStore();
-  const { dataWords, addNewWord, deleteWord, saveChanges, getAllDataWords } =
-    store;
+const Dictionary = observer(({rootStore}) => {
 
-  useEffect(() => {
-    getAllDataWords();
-    // eslint-disable-next-line
-  }, []);
+  const { dataWords, addNewWord, deleteWord, saveChanges, getAllDataWords } =
+    rootStore;
 
   const wordsDictionary = dataWords.map((word) => (
     <DictWords
@@ -65,6 +58,7 @@ const Dictionary = observer((props) => {
 
   return (
     <section className='dict'>
+      <button onClick={getAllDataWords}>fetch</button>
       <h2 className='dict__title'>Словарь</h2>
       <div className='dict__wrapper'>
         <ul className='dict__list'>
