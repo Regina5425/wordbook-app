@@ -39,7 +39,12 @@ import { useEffect } from "react";
 //   );
 // };
 
-const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {
+const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord, getAllWords }) => {
+
+	useEffect(() => {
+    getAllWords();
+    // eslint-disable-next-line
+  }, []);
 	
   const wordsDictionary = dataWords.map((word) => (
     <DictWords
@@ -71,8 +76,7 @@ const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {
   );
 };
 
-export default inject(({ rootStore }) => {
-  console.log(rootStore);
+export default inject((rootStore) => {
   const { dataWords, addNewWord, deleteWord, updateWord, getAllWords } =
     rootStore;
 

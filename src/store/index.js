@@ -32,8 +32,6 @@ class WordStore {
     runInAction(() => {
       this.dataWords = [...this.dataWords, ...data];
     });
-    console.log("fetched");
-    console.log(data);
   };
 
   addNewWord = async (newWord) => {
