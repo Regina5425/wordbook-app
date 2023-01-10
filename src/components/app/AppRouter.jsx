@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { observer } from "mobx-react";
+// import { observer } from "mobx-react";
 import MainPage from "../mainPage/MainPage";
 import Dictionary from "../dictionary/Dictionary";
 import TrainPage from "../trainPage/TrainPage";
 import Page404 from "../404page/404";
-import Loader from "../loader/Loader";
+// import Loader from "../loader/Loader";
 // import { useRequest } from "../../request/request";
 // import { DataContext } from "../../context/context";
-import ErrorMessage from "../errorMessage/ErrorMessage";
+// import ErrorMessage from "../errorMessage/ErrorMessage";
+// import { rootStore } from "../../store";
 
 // const AppRouter = () => {
 //   const { request, isLoading, error } = useRequest();
@@ -106,47 +107,47 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 //   );
 // };
 
-const AppRouter = observer(({ rootStore }) => {
+const AppRouter = () => {
   // const { request, isLoading, error } = useRequest();
   // const [dataWords, setDataWords] = useState([]);
 
-  const { isLoading, error, getAllDataWords } = rootStore;
-
-  useEffect(() => {
-    getAllDataWords();
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   getAllDataWords();
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <Routes>
       <Route path='/' element={<MainPage />} />
       <Route
         path='/dictionary'
-        element={
-          isLoading ? (
-            <Loader />
-          ) : <Dictionary /> && error ? (
-            <ErrorMessage />
-          ) : (
-            <Dictionary />
-          )
-        }
+        // element={
+        //   isLoading ? (
+        //     <Loader />
+        //   ) : <Dictionary /> && error ? (
+        //     <ErrorMessage />
+        //   ) : (
+        //     <Dictionary />
+        //   )
+        // }
+        element={<Dictionary />}
       />
       <Route
         path='/training'
-        element={
-          isLoading ? (
-            <Loader />
-          ) : <TrainPage /> && error ? (
-            <ErrorMessage />
-          ) : (
-            <TrainPage />
-          )
-        }
+        // element={
+        //   isLoading ? (
+        //     <Loader />
+        //   ) : <TrainPage /> && error ? (
+        //     <ErrorMessage />
+        //   ) : (
+        //     <TrainPage />
+        //   )
+        // }
+        element={<TrainPage />}
       />
       <Route path='*' element={<Page404 />} />
     </Routes>
   );
-});
+};
 
 export default AppRouter;

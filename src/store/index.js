@@ -26,7 +26,7 @@ class WordStore {
     makeAutoObservable(this);
   }
 
-  getAllDataWords = async () => {
+  getAllWords = async () => {
     const response = await request("/api/words");
     const data = await response.json();
     runInAction(() => {
@@ -55,7 +55,7 @@ class WordStore {
       .catch((e) => console.log(e));
   };
 
-  saveChanges = async (id, value) => {
+  updateWord = async (id, value) => {
     const response = await request(
       `/api/words/${id}/update`,
       "POST",
@@ -76,4 +76,4 @@ class WordStore {
   };
 }
 
-export default WordStore;
+export const rootStore = new WordStore();

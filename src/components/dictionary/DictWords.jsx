@@ -22,7 +22,7 @@ const DictWords = (props) => {
         <WordEdit
           words={props}
           wordId={id}
-          saveChanges={props.saveChanges}
+          updateWord={props.updateWord}
           closeBlock={onCloseBlock}
         />
       ) : (

@@ -3,7 +3,8 @@ import DictWords from "./DictWords";
 import DictAdd from "./DictAdd";
 import "./Dictionary.scss";
 // import { DataContext } from "../../context/context";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
+import { useEffect } from "react";
 
 // const Dictionary = (props) => {
 //   const context = useContext(DataContext);
@@ -38,11 +39,8 @@ import { observer } from "mobx-react";
 //   );
 // };
 
-const Dictionary = observer(({rootStore}) => {
-
-  const { dataWords, addNewWord, deleteWord, saveChanges, getAllDataWords } =
-    rootStore;
-
+const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {
+	
   const wordsDictionary = dataWords.map((word) => (
     <DictWords
       key={word.id}
@@ -52,13 +50,12 @@ const Dictionary = observer(({rootStore}) => {
       russian={word.russian}
       tags={word.tags}
       onDelete={deleteWord}
-      saveChanges={saveChanges}
+      updateWord={updateWord}
     />
   ));
 
   return (
     <section className='dict'>
-      <button onClick={getAllDataWords}>fetch</button>
       <h2 className='dict__title'>Словарь</h2>
       <div className='dict__wrapper'>
         <ul className='dict__list'>
@@ -72,6 +69,23 @@ const Dictionary = observer(({rootStore}) => {
       {wordsDictionary}
     </section>
   );
-});
+};
 
-export default Dictionary;
+export default inject(({ rootStore }) => {
+  console.log(rootStore);
+  const { dataWords, addNewWord, deleteWord, updateWord, getAllWords } =
+    rootStore;
+
+  useEffect(() => {
+    getAllWords();
+    // eslint-disable-next-line
+  }, []);
+
+  return {
+    dataWords,
+    addNewWord,
+    deleteWord,
+    updateWord,
+    getAllWords,
+  };
+})(observer(Dictionary));
