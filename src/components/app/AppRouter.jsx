@@ -1,6 +1,4 @@
-// import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-// import { observer } from "mobx-react";
 import MainPage from "../mainPage/MainPage";
 import Dictionary from "../dictionary/Dictionary";
 import TrainPage from "../trainPage/TrainPage";
@@ -9,7 +7,6 @@ import Page404 from "../404page/404";
 // import { useRequest } from "../../request/request";
 // import { DataContext } from "../../context/context";
 // import ErrorMessage from "../errorMessage/ErrorMessage";
-// import { rootStore } from "../../store";
 
 // const AppRouter = () => {
 //   const { request, isLoading, error } = useRequest();
@@ -111,11 +108,6 @@ const AppRouter = () => {
   // const { request, isLoading, error } = useRequest();
   // const [dataWords, setDataWords] = useState([]);
 
-  // useEffect(() => {
-  //   getAllDataWords();
-  //   // eslint-disable-next-line
-  // }, []);
-
   return (
     <Routes>
       <Route path='/' element={<MainPage />} />
@@ -131,6 +123,7 @@ const AppRouter = () => {
         //   )
         // }
         element={<Dictionary />}
+        // element={<Todo />}
       />
       <Route
         path='/training'

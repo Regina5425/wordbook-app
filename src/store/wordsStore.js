@@ -1,22 +1,22 @@
 import { runInAction, makeAutoObservable } from "mobx";
 import { request } from "../request/request";
 
-class WordStore {
+export default class WordStore {
   dataWords = [
-    {
-      id: "1",
-      english: "read",
-      transcription: "[ riːd ]",
-      russian: "читать",
-      tags: "глагол",
-    },
-    {
-      id: "2",
-      english: "animal ",
-      transcription: "[ ˈæn.ɪ.məl ]",
-      russian: "животное",
-      tags: "животные",
-    },
+    // {
+    //   id: "1",
+    //   english: "read",
+    //   transcription: "[ riːd ]",
+    //   russian: "читать",
+    //   tags: "глагол",
+    // },
+    // {
+    //   id: "2",
+    //   english: "animal ",
+    //   transcription: "[ ˈæn.ɪ.məl ]",
+    //   russian: "животное",
+    //   tags: "животные",
+    // },
   ];
 
   isLoading = false;
@@ -29,10 +29,22 @@ class WordStore {
   getAllWords = async () => {
     const response = await request("/api/words");
     const data = await response.json();
+    console.log("fetch1");
     runInAction(() => {
       this.dataWords = [...this.dataWords, ...data];
     });
   };
+
+  // getAllWords = () => {
+  //   request("/api/words")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       runInAction(() => {
+  //         this.dataWords = [...this.dataWords, ...data];
+  //       });
+  //     });
+  //   console.log("fetch1");
+  // };
 
   addNewWord = async (newWord) => {
     const response = await request(
@@ -73,5 +85,3 @@ class WordStore {
     this.dataWords = [...newWordData];
   };
 }
-
-export const rootStore = new WordStore();
