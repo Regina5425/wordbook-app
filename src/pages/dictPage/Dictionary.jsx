@@ -1,6 +1,6 @@
 import { observer, inject } from "mobx-react";
-import DictWords from "./DictWords";
-import DictAdd from "./DictAdd";
+import DictWords from "../../components/dictionary/DictWords";
+import DictAdd from "../../components/dictionary/DictAdd";
 import "./Dictionary.scss";
 
 const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {

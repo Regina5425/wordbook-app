@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "../buttons/Buttons";
 
-const WordEdit = ({words, wordId, updateWord, closeBlock}) => {
+const WordEdit = ({ words, wordId, updateWord, closeBlock }) => {
   const [value, setValue] = useState({
     english: words.english,
     transcription: words.transcription,
@@ -11,23 +11,23 @@ const WordEdit = ({words, wordId, updateWord, closeBlock}) => {
   const [invalid, setInvalid] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  useEffect(
-    (e) => {
-      if (
-        value.english === "" ||
-        value.transcription === "" ||
-        value.russian === "" ||
-        value.tags === ""
-      ) {
-        setInvalid(true);
-        setDisabled(true);
-      } else {
-        setInvalid(false);
-        setDisabled(false);
-      }
-    },
-    [value.english, value.transcription, value.russian, value.tags]
-  );
+  // const regexpEng = /^[A-Za-z]+$/;
+  // const regexpRus = /^[А-Яа-я]+$/;
+
+  useEffect(() => {
+    if (
+      value.english === "" ||
+      value.transcription === "" ||
+      value.russian === "" ||
+      value.tags === ""
+    ) {
+      setInvalid(true);
+      setDisabled(true);
+    } else {
+      setInvalid(false);
+      setDisabled(false);
+    }
+  }, [value.english, value.transcription, value.russian, value.tags]);
 
   const onChangeValue = (e) => {
     setValue({

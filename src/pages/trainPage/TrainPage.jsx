@@ -1,7 +1,7 @@
 import { observer, inject } from "mobx-react";
 import { useState } from "react";
-import { ButtonChangeCard } from "../buttons/Buttons";
-import WordCard from "../wordCard/WordCard";
+import { ButtonChangeCard } from "../../components/buttons/Buttons";
+import WordCard from "../../components/wordCard/WordCard";
 
 import "./TrainPage.scss";
 

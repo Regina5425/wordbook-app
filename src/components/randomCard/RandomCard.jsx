@@ -1,11 +1,11 @@
 import "./RandomCard.scss";
 import WordCard from "../wordCard/WordCard";
 
-const RandomCard = (props) => {
+const RandomCard = ({randomWord}) => {
   return (
     <div className='random'>
       <h2 className='random__title'>Слово дня</h2>
-      <WordCard className='word' />
+      <WordCard className='word' randomWord={randomWord} />
     </div>
   );
 };

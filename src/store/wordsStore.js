@@ -2,6 +2,12 @@ import { runInAction, makeAutoObservable } from "mobx";
 
 export default class WordStore {
   dataWords = [];
+  randomWord = {
+    english: "universe",
+    transcription: "[ˈjuːnɪvɜːs]",
+    russian: "вселенная",
+    className: "word",
+  };
 
   isLoading = false;
   isLoaded = false;
@@ -20,8 +26,8 @@ export default class WordStore {
       this.isLoading = true;
       const response = await fetch("/api/words");
       runInAction(() => {
-				this.isLoading = false;
-			})
+        this.isLoading = false;
+      });
 
       if (!response.ok) {
         throw new Error(`Could not fetch API, status: ${response.status}`);
@@ -82,19 +88,44 @@ export default class WordStore {
   };
 
   updateWord = async (id, value) => {
-    const response = await fetch(`/api/words/${id}/update`, {
-      method: "POST",
-      body: JSON.stringify(value),
-    });
-    console.log(response, "Изменено");
-
-    const index = this.dataWords.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      runInAction(() => {
-        this.dataWords[index] = value;
+    try {
+      const response = await fetch(`/api/words/${id}/update`, {
+        method: "POST",
+        body: JSON.stringify(value),
       });
+      console.log(response, "Изменено");
+
+      const index = this.dataWords.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        runInAction(() => {
+          this.dataWords[index] = value;
+        });
+        return this.dataWords;
+      }
       return this.dataWords;
+    } catch (e) {
+      console.log(e);
+      throw e;
     }
-    return this.dataWords;
+  };
+
+  getRandomWord = async (id) => {
+    try {
+      const response = await fetch(`/api/words/${id}`);
+      const data = await response.json();
+      console.log(response, "Получено слово");
+      if (Object.keys(data).length === 0) {
+        runInAction(() => {
+          return this.randomWord;
+        });
+      } else {
+        runInAction(() => {
+          this.randomWord = data;
+        });
+      }
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
   };
 }

@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import { useEffect } from "react";
-import MainPage from "../mainPage/MainPage";
-import Dictionary from "../dictionary/Dictionary";
-import TrainPage from "../trainPage/TrainPage";
-import Page404 from "../404page/404";
+import MainPage from "../../pages/mainPage/MainPage";
+import Dictionary from "../../pages/dictPage/Dictionary";
+import TrainPage from "../../pages/trainPage/TrainPage";
+import Page404 from "../../pages/404page/404";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
@@ -42,9 +42,11 @@ const AppRouter = ({ isError, isLoading }) => {
 };
 
 export default inject(({ wordStore }) => {
-  const { getAllWords, isError, isLoading } = wordStore;
+  const { getAllWords, isError, isLoading, getRandomWord } = wordStore;
 
   useEffect(() => {
+		const id = Math.floor(Math.random() * (13149 - 13146) + 13146);
+		getRandomWord(id);
     getAllWords();
     // eslint-disable-next-line
   }, []);
