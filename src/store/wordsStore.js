@@ -1,87 +1,100 @@
 import { runInAction, makeAutoObservable } from "mobx";
-import { request } from "../request/request";
 
 export default class WordStore {
-  dataWords = [
-    // {
-    //   id: "1",
-    //   english: "read",
-    //   transcription: "[ riːd ]",
-    //   russian: "читать",
-    //   tags: "глагол",
-    // },
-    // {
-    //   id: "2",
-    //   english: "animal ",
-    //   transcription: "[ ˈæn.ɪ.məl ]",
-    //   russian: "животное",
-    //   tags: "животные",
-    // },
-  ];
+  dataWords = [];
 
   isLoading = false;
-  error = false;
+  isLoaded = false;
+  isError = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
   getAllWords = async () => {
-    const response = await request("/api/words");
-    const data = await response.json();
-    console.log("fetch1");
-    runInAction(() => {
-      this.dataWords = [...this.dataWords, ...data];
-    });
-  };
+    try {
+      if (this.isLoaded && this.isLoading) {
+        return;
+      }
 
-  // getAllWords = () => {
-  //   request("/api/words")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       runInAction(() => {
-  //         this.dataWords = [...this.dataWords, ...data];
-  //       });
-  //     });
-  //   console.log("fetch1");
-  // };
+      this.isLoading = true;
+      const response = await fetch("/api/words");
+      runInAction(() => {
+				this.isLoading = false;
+			})
+
+      if (!response.ok) {
+        throw new Error(`Could not fetch API, status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      runInAction(() => {
+        this.dataWords = [...this.dataWords, ...data];
+      });
+      this.isLoaded = true;
+    } catch (e) {
+      console.log(e);
+      this.isError = true;
+      throw e;
+    }
+  };
 
   addNewWord = async (newWord) => {
-    const response = await request(
-      "/api/words/add",
-      "POST",
-      JSON.stringify(newWord)
-    );
-    const result = await response.json();
-    console.log(response, "Добавлено");
-    this.dataWords = this.dataWords.push(result);
+    try {
+      const response = await fetch("/api/words/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newWord),
+      });
+      console.log(response, "Добавлено");
+
+      if (!response.ok) {
+        throw new Error(`Could not fetch API, status: ${response.status}`);
+      }
+
+      runInAction(() => {
+        this.dataWords.push(newWord);
+      });
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
   };
 
-  deleteWord = (id) => {
-    const newDataWords = this.dataWords.filter((item) => item.id !== id);
-    this.dataWords = [...newDataWords];
-    request(`/api/words/${id}/delete`, "POST", JSON.stringify(newDataWords))
-      .then((response) => console.log(response, "Удалено"))
-      .catch((e) => console.log(e));
+  deleteWord = async (id) => {
+    try {
+      const newDataWords = this.dataWords.filter((item) => item.id !== id);
+      runInAction(() => {
+        this.dataWords = [...newDataWords];
+      });
+      const response = await fetch(`/api/words/${id}/delete`, {
+        method: "POST",
+        body: JSON.stringify(newDataWords),
+      });
+      console.log(response, "Удалено");
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
   };
 
   updateWord = async (id, value) => {
-    const response = await request(
-      `/api/words/${id}/update`,
-      "POST",
-      JSON.stringify(value)
-    );
-    const result = await response.json();
+    const response = await fetch(`/api/words/${id}/update`, {
+      method: "POST",
+      body: JSON.stringify(value),
+    });
     console.log(response, "Изменено");
 
-    function getNew() {
-      const index = this.dataWords.findIndex((item) => item.id === id);
-      if (index !== -1) {
-        this.dataWords[index] = result;
-      }
+    const index = this.dataWords.findIndex((item) => item.id === id);
+    if (index !== -1) {
+      runInAction(() => {
+        this.dataWords[index] = value;
+      });
       return this.dataWords;
     }
-    const newWordData = getNew();
-    this.dataWords = [...newWordData];
+    return this.dataWords;
   };
 }

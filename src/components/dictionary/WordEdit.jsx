@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "../buttons/Buttons";
 
-const WordEdit = (props) => {
+const WordEdit = ({words, wordId, updateWord, closeBlock}) => {
   const [value, setValue] = useState({
-    english: props.words.english,
-    transcription: props.words.transcription,
-    russian: props.words.russian,
-    tags: props.words.tags,
+    english: words.english,
+    transcription: words.transcription,
+    russian: words.russian,
+    tags: words.tags,
   });
   const [invalid, setInvalid] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -41,8 +41,8 @@ const WordEdit = (props) => {
     if (invalid) {
       console.log("error");
     } else {
-      props.updateWord(props.wordId, value);
-      props.closeBlock();
+      updateWord(wordId, value);
+      closeBlock();
     }
   };
 
@@ -100,7 +100,7 @@ const WordEdit = (props) => {
       </Button>
       <Button
         type='button'
-        onClick={props.closeBlock}
+        onClick={closeBlock}
         className='dict__btn dict__btn--no'
       >
         Отмена
