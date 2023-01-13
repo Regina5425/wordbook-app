@@ -8,7 +8,7 @@ const DictAdd = (props) => {
   const [tags, setTags] = useState("");
   const [valid, setValid] = useState(false);
 
-  const onSubmitHandler = async (e) => {
+  const onSubmitHandler = (e) => {
     e.preventDefault();
     const newWord = {
       english,

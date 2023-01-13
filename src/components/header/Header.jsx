@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import "./Header.scss";
 
@@ -12,13 +12,19 @@ const Header = () => {
           </Link>
         </li>
         <li className='header__item'>
-          <Link to='/' className="header__btn">Главная</Link>
+          <Link to='/' className='header__btn'>
+            Главная
+          </Link>
         </li>
         <li className='header__item'>
-          <Link to='/dictionary' className='header__btn'>Словарь</Link>
+          <Link to='/dictionary' className='header__btn'>
+            Словарь
+          </Link>
         </li>
         <li className='header__item'>
-          <Link to='/training' className='header__btn'>Тренировка</Link>
+          <Link to='/training' className='header__btn'>
+            Тренировка
+          </Link>
         </li>
       </ul>
     </header>

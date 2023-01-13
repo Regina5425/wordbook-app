@@ -45,7 +45,7 @@ export default inject(({ wordStore }) => {
   const { getAllWords, isError, isLoading, getRandomWord } = wordStore;
 
   useEffect(() => {
-		const id = Math.floor(Math.random() * (13149 - 13146) + 13146);
+		const id = Math.floor(Math.random() * (14000 - 13053) + 13053);
 		getRandomWord(id);
     getAllWords();
     // eslint-disable-next-line
