@@ -42,11 +42,9 @@ const AppRouter = ({ isError, isLoading }) => {
 };
 
 export default inject(({ wordStore }) => {
-  const { getAllWords, isError, isLoading, getRandomWord } = wordStore;
+  const { getAllWords, isError, isLoading } = wordStore;
 
   useEffect(() => {
-		const id = Math.floor(Math.random() * (14000 - 13053) + 13053);
-		getRandomWord(id);
     getAllWords();
     // eslint-disable-next-line
   }, []);

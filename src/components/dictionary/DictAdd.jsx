@@ -17,12 +17,20 @@ const DictAdd = (props) => {
       tags,
     };
 
-    if (
-      newWord.english === "" ||
-      newWord.russian === "" ||
-      newWord.transcription === "" ||
-      newWord.tags === ""
-    ) {
+    const regexpEng = /^[A-Za-z]+$/gm;
+    const regexpRus = /^[А-Яа-я]+$/gm;
+
+    const validation =
+      !newWord.english ||
+      regexpRus.test(newWord.english) ||
+      !newWord.russian ||
+      regexpEng.test(newWord.russian) ||
+      !newWord.transcription ||
+      regexpRus.test(newWord.transcription) ||
+      !newWord.tags ||
+      regexpEng.test(newWord.tags);
+
+    if (validation) {
       setValid(true);
     } else {
       setValid(false);

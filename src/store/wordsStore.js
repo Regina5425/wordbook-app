@@ -38,6 +38,12 @@ export default class WordStore {
       runInAction(() => {
         this.dataWords = [...this.dataWords, ...data];
       });
+
+      const dataRandom = Math.floor(Math.random() * data.length);
+      runInAction(() => {
+        this.randomWord = data[dataRandom];
+      });
+
       this.isLoaded = true;
     } catch (e) {
       console.log(e);
@@ -103,26 +109,6 @@ export default class WordStore {
         return this.dataWords;
       }
       return this.dataWords;
-    } catch (e) {
-      console.log(e);
-      throw e;
-    }
-  };
-
-  getRandomWord = async (id) => {
-    try {
-      const response = await fetch(`/api/words/${id}`);
-      const data = await response.json();
-      console.log(response, "Получено слово");
-      if (Object.keys(data).length === 0) {
-        runInAction(() => {
-          return this.randomWord;
-        });
-      } else {
-        runInAction(() => {
-          this.randomWord = data;
-        });
-      }
     } catch (e) {
       console.log(e);
       throw e;
