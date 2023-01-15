@@ -1,15 +1,10 @@
-import { useContext } from "react";
-import DictWords from "./DictWords";
-import DictAdd from "./DictAdd";
+import { observer, inject } from "mobx-react";
+import DictWords from "../../components/dictionary/DictWords";
+import DictAdd from "../../components/dictionary/DictAdd";
 import "./Dictionary.scss";
-import { DataContext } from "../../context/context";
-// import { useState } from "react";
 
-const Dictionary = (props) => {
-  const context = useContext(DataContext);
-	// const [data, setData] = useState(context);
-
-  const wordsDictionary = context.map((word) => (
+const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {
+  const wordsDictionary = dataWords.map((word) => (
     <DictWords
       key={word.id}
       id={word.id}
@@ -17,8 +12,8 @@ const Dictionary = (props) => {
       transcription={word.transcription}
       russian={word.russian}
       tags={word.tags}
-      onDelete={props.onDelete}
-			saveChanges={props.saveChanges}
+      onDelete={deleteWord}
+      updateWord={updateWord}
     />
   ));
 
@@ -33,10 +28,19 @@ const Dictionary = (props) => {
           <li className='dict__item dict__sub'>Категория</li>
         </ul>
       </div>
-      <DictAdd addNewWord={props.addNewWord}/>
+      <DictAdd addNewWord={addNewWord} />
       {wordsDictionary}
     </section>
   );
 };
 
-export default Dictionary;
+export default inject(({ wordStore }) => {
+  const { dataWords, addNewWord, deleteWord, updateWord } = wordStore;
+
+  return {
+    dataWords,
+    addNewWord,
+    deleteWord,
+    updateWord,
+  };
+})(observer(Dictionary));

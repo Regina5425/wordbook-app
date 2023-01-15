@@ -1,50 +1,50 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .header {
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-	flex: 0 0 auto;
-	margin-bottom: 15px;
-	padding: 5px 15px;
-	background-color: rgba(255, 255, 255, 0.4);
-	transition: all 0.4s ease-in-out;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  flex: 0 0 auto;
+  margin-bottom: 15px;
+  padding: 5px 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
 
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.7);
-		color: $hoverColor;
-	}
-	
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: $hoverColor;
+  }
+
   &__list {
     display: flex;
     align-items: center;
-		margin: 0 auto;
-		padding: 0 15px;
-		max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1300px;
   }
 
-	&__item:not(:last-child) {
-		margin-right: 7rem;
-	}
+  &__item:not(:last-child) {
+    margin-right: 7rem;
+  }
 
   &__home {
     width: 30px;
     height: 30px;
   }
 
-	&__btn {
-		padding: 10px 20px;
-		font-weight: 700;
-		border: none;
-		background-color: transparent;
+  &__btn {
+    padding: 10px 20px;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
 
-		&:hover {
-			text-decoration: underline;
-		}
+    &:hover {
+      text-decoration: underline;
+    }
 
-		&:focus {
-			color: $hoverColor;
-			outline-color: $hoverColor;
-		}
-	}
+    &:focus {
+      color: $hoverColor;
+      outline-color: $hoverColor;
+    }
+  }
 }

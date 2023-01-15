@@ -1,20 +1,18 @@
-import { useContext } from "react";
-import { ButtonChangeCard } from "../buttons/Buttons";
-import WordCard from "../wordCard/WordCard";
+import { observer, inject } from "mobx-react";
 import { useState } from "react";
-import { DataContext } from "../../context/context";
+import { ButtonChangeCard } from "../../components/buttons/Buttons";
+import WordCard from "../../components/wordCard/WordCard";
 
 import "./TrainPage.scss";
 
 const TrainPage = (props) => {
+  const { dataWords } = props;
   const { initial = 1 } = props;
   const [index, setIndex] = useState(initial);
   const [countWord, setCountWord] = useState(0);
 
-  const context = useContext(DataContext);
-
   const getNextCard = () => {
-    if (index === context.length) {
+    if (index === dataWords.length) {
       setIndex(initial);
     } else {
       setIndex(index + initial);
@@ -23,7 +21,7 @@ const TrainPage = (props) => {
 
   const getPrevCard = () => {
     if (index === 1) {
-      setIndex(context.length);
+      setIndex(dataWords.length);
     } else {
       setIndex(index - initial);
     }
@@ -33,7 +31,7 @@ const TrainPage = (props) => {
     setCountWord((countWord) => countWord + 1);
   };
 
-  const wordsElements = context.map((word, i) => (
+  const wordsElements = dataWords.map((word, i) => (
     <WordCard
       key={word.id}
       english={word.english}
@@ -61,10 +59,14 @@ const TrainPage = (props) => {
         />
       </div>
       <div className='train__index'>
-        {index}/{context.length}
+        {index}/{dataWords.length}
       </div>
     </div>
   );
 };
 
-export default TrainPage;
+export default inject(({ wordStore }) => {
+  const { dataWords } = wordStore;
+
+  return { dataWords };
+})(observer(TrainPage));

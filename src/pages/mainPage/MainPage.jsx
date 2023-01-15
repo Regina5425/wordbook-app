@@ -1,13 +1,17 @@
-import RandomCard from "../randomCard/RandomCard";
+import { observer, inject } from "mobx-react";
+import RandomCard from "../../components/randomCard/RandomCard";
 import "./MainPage.scss";
 
-const MainPage = () => {
+const MainPage = ({ randomWord }) => {
+
   return (
     <div className='main-content'>
       <section className='main-content__info'>
         <h1 className='main-content__title'>Учи слова играючи!</h1>
         <p className='main-content__descr'>Добро пожаловать!</p>
-        <p className='main-content__descr'>Здесь можно легко запомнить иностранные слова</p>
+        <p className='main-content__descr'>
+          Здесь можно легко запомнить иностранные слова
+        </p>
         <p className='main-content__descr'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam error
           iste, cumque praesentium cupiditate quas obcaecati consectetur sunt
@@ -19,10 +23,14 @@ const MainPage = () => {
         </p>
       </section>
       <section className='main-content__card'>
-				<RandomCard/>
-			</section>
+        <RandomCard randomWord={randomWord} />
+      </section>
     </div>
   );
 };
 
-export default MainPage;
+export default inject(({ wordStore }) => {
+  const { randomWord } = wordStore;
+
+  return { randomWord };
+})(observer(MainPage));
