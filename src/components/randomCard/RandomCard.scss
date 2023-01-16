@@ -1,14 +1,20 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .random {
-	display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-	gap: 30px;
+  gap: 30px;
 
-	&__title {
-		font-size: $fontTitle;
+  &__title {
+    font-size: $fontTitle;
     font-weight: 700;
     margin-bottom: 15px;
-	}
+  }
+}
+
+@media (max-width: 992px) {
+  .random__title {
+    font-size: 22px;
+  }
 }

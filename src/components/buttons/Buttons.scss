@@ -6,7 +6,7 @@
   width: 100%;
   border: none;
   border-radius: $borderRadius;
-	color: $mainColor;
+  color: $mainColor;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
@@ -38,8 +38,8 @@
 }
 
 .disabled {
-	background-color: $yes;
-	cursor: initial;
+  background-color: $yes;
+  cursor: initial;
 }
 
 .trans__btn {
@@ -53,42 +53,75 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
-	&:hover {
-		background-color: $mainColor;
-		color: $hoverColor;
-	}
+  &:hover {
+    background-color: $mainColor;
+    color: $hoverColor;
+  }
 
-	&:focus {
-		outline: none;
-		// border: 5px solid $mainColor;
-		border: 5px solid $yes;
-	}
+  &:focus {
+    outline: none;
+    border: 5px solid $yes;
+  }
 }
 
 .btn-arrow {
-	padding: 10px;
-	width: 50px;
-	height: 50px;
-	background-color: $yes;
-	border: none;
-	border-radius: 100%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: $yes;
+  border: none;
+  border-radius: 100%;
   cursor: pointer;
-	transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
-	& img {
-		width: 30px;
-		height: 30px;
-	}
+  & img {
+    width: 30px;
+    height: 30px;
+  }
 
-	&--next {
-		transform: rotate(180deg);
-	}
+  &--next {
+    transform: rotate(180deg);
+  }
 
-	&:hover {
-		background-color: $hoverColor;
-	}
+  &:hover {
+    background-color: $hoverColor;
+  }
 
-	&:focus {
-		outline-color: $mainColor;
-	}
+  &:focus {
+    outline-color: $mainColor;
+  }
+}
+
+@media (max-width: 578px) {
+  .btn-arrow {
+    position: absolute;
+    bottom: 15px;
+    z-index: 1000;
+
+    &--prev {
+      left: 15px;
+    }
+
+    &--next {
+      right: 15px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trans__btn {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 280px) {
+  .trans__btn {
+    padding: 5px 10px;
+    font-size: $fontSize;
+  }
 }

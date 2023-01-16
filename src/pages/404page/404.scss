@@ -261,3 +261,14 @@
     opacity: 0.2;
   }
 }
+
+@media (max-width: 500px) {
+  .box .box__description .box__description-container {
+    width: 300px;
+    font-size: 20px;
+  }
+
+  .box .box__description .box__description-container .box__description-text {
+    line-height: 25px;
+  }
+}

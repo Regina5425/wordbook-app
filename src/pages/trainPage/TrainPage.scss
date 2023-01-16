@@ -1,17 +1,17 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .train {
   display: flex;
   flex-direction: column;
   align-items: center;
-	padding-top: 50px;
-	padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-	&__count {
-		margin-bottom: 10px;
-		font-size: $fontSize;
-		font-weight: 700;
-	}
+  &__count {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
+  }
 
   &__page {
     margin-top: 15px;
@@ -22,8 +22,33 @@
     gap: 30px;
   }
 
-	&__index {
-		font-weight: 700;
-		font-size: $fontSize;
-	}
+  &__index {
+    font-weight: 700;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .train {
+    &__page {
+      gap: 15px;
+    }
+  }
+}
+
+@media (max-width: 578px) {
+  .train {
+    &__page {
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .train {
+    &__count,
+    &__index {
+      font-size: $fontSize;
+    }
+  }
 }

@@ -2,13 +2,13 @@
 
 .main-content {
   display: flex;
-	justify-content: space-between;
+  justify-content: space-between;
   gap: 30px;
-	padding: 10px 0;
+  padding: 10px 15px;
 
-	&__info {
-		flex: 0 1 40%;
-	}
+  &__info {
+    flex: 0 1 40%;
+  }
 
   &__title {
     margin-bottom: 20px;
@@ -21,7 +21,42 @@
     }
   }
 
-	&__card {
-		flex: 1 1 60%;
-	}
+  &__card {
+    flex: 1 1 60%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+    gap: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+
+    &__info {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    padding: 10px 8px;
+    text-align: center;
+
+    &__info {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+  }
 }

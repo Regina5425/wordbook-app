@@ -23,26 +23,66 @@
     font-size: 28px;
   }
 
-	&--active {
-		opacity: 1;
-	}
+  &--active {
+    opacity: 1;
+  }
 
-	&--hidden {
-		display: none;
-	}
+  &--hidden {
+    display: none;
+  }
 }
 
 .fade {
-	animation-name: fade-in;
-	animation-duration: 1.2s;
-	animation-fill-mode: both;
+  animation-name: fade-in;
+  animation-duration: 1.2s;
+  animation-fill-mode: both;
 }
 
 @keyframes fade-in {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .word {
+    width: 400px;
+
+    &__word {
+      font-size: 44px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .word {
+    width: 300px;
+    height: 350px;
+
+    &__word {
+      font-size: 30px;
+    }
+
+    &__pron {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .word {
+    width: 250px;
+    height: 300px;
+
+    &__word {
+      font-size: 26px;
+    }
+
+    &__pron {
+      font-size: $fontSize;
+    }
+  }
 }

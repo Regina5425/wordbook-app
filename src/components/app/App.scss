@@ -19,3 +19,10 @@
   padding-top: 100px;
   max-width: 1300px;
 }
+
+@media (max-width: 280px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,40 +1,60 @@
-@import './../../styles/variables.scss';
+@import "./../../styles/variables.scss";
 
 .footer {
-	flex: 0 0 auto;
-	margin-top: 15px;
-	padding: 5px 15px;
-	background-color: rgba(255, 255, 255, 0.4);
-	transition: all 0.4s ease-in-out;
+  flex: 0 0 auto;
+  margin-top: 15px;
+  padding: 5px 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
 
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.7);
-		color: $hoverColor;
-	}
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: $hoverColor;
+  }
 
-	&__list {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin: 0 auto;
-		padding: 0 15px;
-		max-width: 1300px;
-	}
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1300px;
+  }
 
-	&__link {
-		padding: 10px 20px;
-		font-weight: 700;
+  &__link {
+    padding: 10px 20px;
+    font-weight: 700;
 
-		&:not(:last-child) {
-			margin-right: 20px;
-		}
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
 
-		&:hover {
-			text-decoration: underline;
-		}
+    &:hover {
+      text-decoration: underline;
+    }
 
-		&:focus {
-			outline-color: $hoverColor;
-		}
-	}
+    &:focus {
+      outline-color: $hoverColor;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    &__link {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .footer {
+    &__list {
+      padding: 0;
+    }
+
+    &__link {
+      padding: 10px 0;
+    }
+  }
 }
