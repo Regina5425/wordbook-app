@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import "./Footer.scss";
 
@@ -6,9 +7,9 @@ const Footer = () => {
     <footer className='footer'>
       <ul className='footer__list'>
         <li className='footer__item'>
-          <a href='www.google.com'>
+          <Link to='/'>
             <img src={logo} alt='logo' className='logo' />
-          </a>
+          </Link>
         </li>
         <li className='footer__item'>
           <a href='mailto:reina5425@gmail.com' className='footer__link'>
