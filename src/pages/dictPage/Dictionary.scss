@@ -11,7 +11,13 @@
 
   &__wrapper {
     padding: 15px 10px;
-    border-radius: $borderRadius;
+  }
+
+  &__subtitle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    gap: 8px;
   }
 
   &__list {
@@ -39,6 +45,12 @@
     text-align: center;
   }
 
+  &__border {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid $mainColor;
+  }
+
   &__input {
     display: block;
     width: 100%;
@@ -48,6 +60,12 @@
     background-color: $transparent;
     text-align: center;
     color: $mainColor;
+
+    &::placeholder {
+      font-style: italic;
+      font-size: 14px;
+      color: $mainColor;
+    }
 
     &--edit {
       border: 2px solid $mainColor;
@@ -59,6 +77,90 @@
 
     &:focus {
       outline-color: $mainColor;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .dict {
+    &__border {
+      margin-top: 10px;
+    }
+
+    &__subtitle {
+      display: none;
+    }
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "first second third" "forth fifth sixth";
+    }
+
+    &__input,
+    &__item {
+      &:nth-child(1) {
+        grid-area: first;
+      }
+
+      &:nth-child(2) {
+        grid-area: forth;
+      }
+
+      &:nth-child(3) {
+        grid-area: second;
+      }
+
+      &:nth-child(4) {
+        grid-area: fifth;
+      }
+
+      &:nth-child(5) {
+        grid-area: third;
+      }
+
+      &:nth-child(6) {
+        grid-area: sixth;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dict {
+    &__wrapper {
+      padding: 10px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "first second" "third forth" "fifth sixth";
+    }
+
+    &__input,
+    &__item {
+      &:nth-child(1) {
+        grid-area: first;
+      }
+
+      &:nth-child(2) {
+        grid-area: second;
+      }
+
+      &:nth-child(3) {
+        grid-area: third;
+      }
+
+      &:nth-child(4) {
+        grid-area: forth;
+      }
+
+      &:nth-child(5) {
+        grid-area: fifth;
+      }
+
+      &:nth-child(6) {
+        grid-area: sixth;
+      }
     }
   }
 }

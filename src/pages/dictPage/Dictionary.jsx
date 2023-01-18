@@ -20,16 +20,20 @@ const Dictionary = ({ dataWords, addNewWord, deleteWord, updateWord }) => {
   return (
     <section className='dict'>
       <h2 className='dict__title'>Словарь</h2>
-      <div className='dict__wrapper'>
-        <ul className='dict__list'>
-          <li className='dict__item dict__sub'>Слово</li>
-          <li className='dict__item dict__sub'>Транскрипция</li>
-          <li className='dict__item dict__sub'>Перевод</li>
-          <li className='dict__item dict__sub'>Категория</li>
-        </ul>
+      <div className='dict__border'>
+        <DictAdd addNewWord={addNewWord} />
       </div>
-      <DictAdd addNewWord={addNewWord} />
-      {wordsDictionary}
+      <div className='dict__border'>
+        <div className='dict__wrapper'>
+          <ul className='dict__subtitle'>
+            <li className='dict__item dict__sub'>Слово</li>
+            <li className='dict__item dict__sub'>Транскрипция</li>
+            <li className='dict__item dict__sub'>Перевод</li>
+            <li className='dict__item dict__sub'>Категория</li>
+          </ul>
+        </div>
+        {wordsDictionary}
+      </div>
     </section>
   );
 };

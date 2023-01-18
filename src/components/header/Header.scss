@@ -18,9 +18,16 @@
   &__list {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1300px;
+  }
+
+  &__item {
+    &--burger {
+      display: none;
+    }
   }
 
   &__item:not(:last-child) {
@@ -46,5 +53,139 @@
       color: $hoverColor;
       outline-color: $hoverColor;
     }
+  }
+
+  &__title-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &__item:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    &--active {
+      background-color: #fff;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    &__title {
+      position: relative;
+    }
+
+    &__title-block {
+      position: absolute;
+      z-index: 10000;
+      display: block;
+      top: 35px;
+      left: 250px;
+      padding: 50px 15px;
+      width: 500px;
+      height: 100vh;
+      text-align: center;
+      color: $mainColor;
+      background-color: $colorBG;
+      transform: translateX(100%);
+      transition: transform 0.6s ease-in-out;
+
+      &--visible {
+        transform: translateX(-100%);
+      }
+    }
+
+    &__item {
+      &--burger {
+        display: block;
+      }
+    }
+
+    &__btn:hover {
+      text-decoration: none;
+    }
+  }
+
+  .burger {
+    position: relative;
+    padding: 7px;
+    width: 50px;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 5px;
+      background-color: $colorBG;
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out,
+        bottom 0.3s ease-in-out;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    &__line {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 40px;
+      height: 5px;
+      border-radius: 5px;
+      background-color: $colorBG;
+      transform: translateY(-50%);
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &--active &__line {
+      opacity: 0;
+    }
+
+    &--active::before {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+
+    &--active::after {
+      bottom: auto;
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+
+    &-menu__item {
+      margin-bottom: 40px;
+      font-size: 26px;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .header {
+    &__list {
+      padding: 0;
+    }
+  }
+  .burger {
+    padding: 5px;
+    width: 40px;
+    height: 30px;
   }
 }
