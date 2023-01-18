@@ -3,7 +3,6 @@ import RandomCard from "../../components/randomCard/RandomCard";
 import "./MainPage.scss";
 
 const MainPage = ({ randomWord }) => {
-
   return (
     <div className='main-content'>
       <section className='main-content__info'>

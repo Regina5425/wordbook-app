@@ -22,7 +22,7 @@ const Footer = () => {
             href='https://github.com/Regina5425'
             target='_blank'
             rel='noopener noreferrer'
-						className='footer__link'
+            className='footer__link'
           >
             by Regina
           </a>

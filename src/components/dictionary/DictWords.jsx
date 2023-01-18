@@ -4,7 +4,8 @@ import Words from "./Words";
 import WordEdit from "./WordEdit";
 
 const DictWords = (props) => {
-  const { english, transcription, tags, russian, id, onDelete, updateWord } = props;
+  const { english, transcription, tags, russian, id, onDelete, updateWord } =
+    props;
 
   const [isEdited, setIsEdited] = useState(false);
 

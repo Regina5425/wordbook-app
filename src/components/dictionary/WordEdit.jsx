@@ -11,9 +11,6 @@ const WordEdit = ({ words, wordId, updateWord, closeBlock }) => {
   const [invalid, setInvalid] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
-  // const regexpEng = /^[A-Za-z]+$/;
-  // const regexpRus = /^[А-Яа-я]+$/;
-
   useEffect(() => {
     if (
       value.english === "" ||
