@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wordbook-app/static/css/main.d5c68d16.css",
-    "main.js": "/wordbook-app/static/js/main.1e7cde07.js",
+    "main.js": "/wordbook-app/static/js/main.5f0423cd.js",
     "index.html": "/wordbook-app/index.html",
     "static/media/arrow.svg": "/wordbook-app/static/media/arrow.5f0cc43af26de6c5a1892c59a0f07cae.svg",
     "main.d5c68d16.css.map": "/wordbook-app/static/css/main.d5c68d16.css.map",
-    "main.1e7cde07.js.map": "/wordbook-app/static/js/main.1e7cde07.js.map"
+    "main.5f0423cd.js.map": "/wordbook-app/static/js/main.5f0423cd.js.map"
   },
   "entrypoints": [
     "static/css/main.d5c68d16.css",
-    "static/js/main.1e7cde07.js"
+    "static/js/main.5f0423cd.js"
   ]
 }
