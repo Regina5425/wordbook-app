@@ -12,7 +12,6 @@
 
   &--yes {
     background-color: $yes;
-    transition: all 0.3s ease-in-out;
 
     &:hover {
       background-color: $yesHover;
@@ -21,10 +20,25 @@
 
   &--no {
     background-color: $no;
-    transition: all 0.3s ease-in-out;
 
     &:hover {
       background-color: $noHover;
+    }
+  }
+
+  &--add {
+    background-color: $add;
+
+    &:hover {
+      background-color: $addHover;
+    }
+  }
+
+  &--cancel {
+    background-color: $cancel;
+
+    &:hover {
+      background-color: $cancelHover;
     }
   }
 

@@ -54,31 +54,35 @@ const DictAdd = (props) => {
     <div className='dict__wrapper'>
       <form className='dict__list' onSubmit={onSubmitHandler}>
         <input
+          placeholder='слово'
           value={english}
           type='text'
           className={valid ? "dict__input dict__input--error" : "dict__input"}
           onChange={(e) => setEnglish(e.target.value)}
         />
         <input
+          placeholder='транскрипция'
           value={transcription}
           type='text'
           className={valid ? "dict__input dict__input--error" : "dict__input"}
           onChange={(e) => setTranscription(e.target.value)}
         />
         <input
+          placeholder='перевод'
           value={russian}
           type='text'
           className={valid ? "dict__input dict__input--error" : "dict__input"}
           onChange={(e) => setRussian(e.target.value)}
         />
         <input
+          placeholder='категория'
           value={tags}
           type='text'
           className={valid ? "dict__input dict__input--error" : "dict__input"}
           onChange={(e) => setTags(e.target.value)}
         />
-        <Button className='dict__btn dict__btn--yes'>Добавить</Button>
-        <Button onClick={cancelAdd} className='dict__btn dict__btn--no'>
+        <Button className='dict__btn dict__btn--add'>Добавить</Button>
+        <Button onClick={cancelAdd} className='dict__btn dict__btn--cancel'>
           Отмена
         </Button>
       </form>
