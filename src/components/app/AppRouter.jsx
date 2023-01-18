@@ -11,7 +11,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 const AppRouter = ({ isError, isLoading }) => {
   return (
     <Routes>
-      <Route path='/' element={<MainPage />} />
+      <Route path='/*' element={<MainPage />} />
       <Route
         path='/dictionary'
         element={
