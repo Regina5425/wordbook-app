@@ -24,7 +24,9 @@ export default class WordStore {
       }
 
       this.isLoading = true;
-      const response = await fetch("/api/words");
+      const response = await fetch(
+        "http://itgirlschool.justmakeit.ru/api/words"
+      );
       runInAction(() => {
         this.isLoading = false;
       });
@@ -54,13 +56,16 @@ export default class WordStore {
 
   addNewWord = async (newWord) => {
     try {
-      const response = await fetch("/api/words/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newWord),
-      });
+      const response = await fetch(
+        "http://itgirlschool.justmakeit.ru/api/words/add",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newWord),
+        }
+      );
       console.log(response, "Добавлено");
 
       if (!response.ok) {
@@ -82,10 +87,13 @@ export default class WordStore {
       runInAction(() => {
         this.dataWords = [...newDataWords];
       });
-      const response = await fetch(`/api/words/${id}/delete`, {
-        method: "POST",
-        body: JSON.stringify(newDataWords),
-      });
+      const response = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        {
+          method: "POST",
+          body: JSON.stringify(newDataWords),
+        }
+      );
       console.log(response, "Удалено");
     } catch (e) {
       console.log(e);
@@ -95,10 +103,13 @@ export default class WordStore {
 
   updateWord = async (id, value) => {
     try {
-      const response = await fetch(`/api/words/${id}/update`, {
-        method: "POST",
-        body: JSON.stringify(value),
-      });
+      const response = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        {
+          method: "POST",
+          body: JSON.stringify(value),
+        }
+      );
       console.log(response, "Изменено");
 
       const index = this.dataWords.findIndex((item) => item.id === id);
