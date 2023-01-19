@@ -57,7 +57,7 @@ export default class WordStore {
   addNewWord = async (newWord) => {
     try {
       const response = await fetch(
-        "http://itgirlschool.justmakeit.ru/api/words/add",
+        "/api/words/add",
         {
           method: "POST",
           headers: {

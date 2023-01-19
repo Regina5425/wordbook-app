@@ -9,8 +9,6 @@
 
   <p align="center">
     Application for memorizing foreign words
-    <br />
-    <a href="https://regina5425.github.io/wordbook-app/">View Demo</a>
   </p>
 </div>
 
