@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { nanoid } from 'nanoid';
 import { Button } from "../buttons/Buttons";
 
 const DictAdd = (props) => {
@@ -11,6 +12,7 @@ const DictAdd = (props) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const newWord = {
+			id: nanoid(),
       english,
       transcription,
       russian,

@@ -1,0 +1,81 @@
+{
+  "words": [
+    {
+      "id": "13147",
+      "english": "father",
+      "transcription": "[ ˈfɑː.ðə r] ",
+      "russian": "отец",
+      "tags": "семья"
+    },
+    {
+      "id": "13148",
+      "english": "family",
+      "transcription": "[ ˈfæm. ə l.i ]",
+      "russian": "семья",
+      "tags": "семья"
+    },
+    {
+      "id": "13173",
+      "english": "star",
+      "transcription": "[stɑː]",
+      "russian": "звезда",
+      "tags": "космоc"
+    },
+    {
+      "id": "13191",
+      "english": "galaxy",
+      "transcription": "[ˈgæləksɪ]",
+      "russian": "галактика",
+      "tags": "космос"
+    },
+    {
+      "id": "13195",
+      "english": "milk",
+      "transcription": "[mɪlk]",
+      "russian": "молоко",
+      "tags": "продукты"
+    },
+    {
+      "id": "13197",
+      "english": "happy",
+      "transcription": "[ˈhæpɪ]",
+      "russian": "счастливый",
+      "tags": "эмоции"
+    },
+    {
+      "id": "13230",
+      "english": "sun",
+      "transcription": "[ sʌn ] ",
+      "russian": "солнце",
+      "tags": "космос"
+    },
+    {
+      "id": "13233",
+      "english": "apple",
+      "transcription": "[ ˈæpl ]",
+      "russian": "яблоко",
+      "tags": "фрукты"
+    },
+    {
+      "id": "13269",
+      "english": "universe",
+      "transcription": "[ˈjuːnɪvɜːs]",
+      "russian": "вселенная",
+      "tags": "космос"
+    },
+    {
+      "id": "hxehARuq6WsSFIFZ6O17H",
+      "english": "bee",
+      "transcription": "[biː]",
+      "russian": "пчела",
+      "tags": "насекомые"
+    },
+    {
+      "id": "jBq7vOtpaieCRPLJJO8Ov",
+      "english": "lilac",
+      "transcription": "[ˈlaɪlək]",
+      "russian": "сирень",
+      "tags": "растения"
+    }
+  ]
+}

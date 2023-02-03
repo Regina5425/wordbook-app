@@ -25,7 +25,7 @@ export default class WordStore {
 
       this.isLoading = true;
       const response = await fetch(
-        "http://itgirlschool.justmakeit.ru/api/words"
+        "http://localhost:3001/words"
       );
       runInAction(() => {
         this.isLoading = false;
@@ -57,7 +57,7 @@ export default class WordStore {
   addNewWord = async (newWord) => {
     try {
       const response = await fetch(
-        "/api/words/add",
+        "http://localhost:3001/words",
         {
           method: "POST",
           headers: {
@@ -88,9 +88,12 @@ export default class WordStore {
         this.dataWords = [...newDataWords];
       });
       const response = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        `http://localhost:3001/words/${id}`,
         {
-          method: "POST",
+          method: "DELETE",
+					headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(newDataWords),
         }
       );
@@ -104,9 +107,12 @@ export default class WordStore {
   updateWord = async (id, value) => {
     try {
       const response = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        `http://localhost:3001/words/${id}`,
         {
-          method: "POST",
+          method: "PATCH",
+					headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(value),
         }
       );
