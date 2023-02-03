@@ -12,13 +12,10 @@ const MainPage = ({ randomWord }) => {
           Здесь можно легко запомнить иностранные слова
         </p>
         <p className='main-content__descr'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam error
-          iste, cumque praesentium cupiditate quas obcaecati consectetur sunt
-          voluptatum aut iusto commodi rerum? Fuga rerum, mollitia quidem
-          asperiores labore fugiat! Ut, culpa unde. Omnis deserunt asperiores
-          error laboriosam et voluptate fugit, officia architecto consequuntur
-          repudiandae aliquam quas soluta repellat earum quod, accusamus
-          accusantium sunt, ex qui corporis. Voluptatibus, earum debitis.
+          В словаре отображается список изученных слов, можно добавить новое слово, отредактировать или удалить.
+        </p>
+				<p className='main-content__descr'>
+          На странице тренировок можно потренировать ранее изученные слова, посмотреть их перевод.
         </p>
       </section>
       <section className='main-content__card'>
