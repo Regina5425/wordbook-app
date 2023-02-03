@@ -25,7 +25,14 @@ export default class WordStore {
 
       this.isLoading = true;
       const response = await fetch(
-        "http://localhost:3001/words"
+        "http://localhost:3001/words",
+				{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: null,
+        }
       );
       runInAction(() => {
         this.isLoading = false;
