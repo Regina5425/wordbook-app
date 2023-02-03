@@ -2,15 +2,17 @@
   "name": "wordbook-app",
   "version": "0.1.0",
   "private": true,
-	"homepage": "https://regina5425.github.io/wordbook-app/",
-	"proxy": "http://itgirlschool.justmakeit.ru",
+  "homepage": "https://regina5425.github.io/wordbook-app/",
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "json-server": "^0.17.1",
     "mobx": "^6.7.0",
     "mobx-react": "^7.6.0",
     "mobx-react-lite": "^3.4.0",
+    "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
@@ -19,12 +21,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "server": "json-server -w wordsdata.json -p 3001"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "gh-pages": "^4.0.0"
   }
 }
