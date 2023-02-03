@@ -25,7 +25,7 @@ export default class WordStore {
 
       this.isLoading = true;
       const response = await fetch(
-        "http://localhost:3001/words",
+        "https://63dd3878367aa5a7a40bbb9d.mockapi.io/words",
 				{
           method: "GET",
           headers: {
@@ -64,7 +64,7 @@ export default class WordStore {
   addNewWord = async (newWord) => {
     try {
       const response = await fetch(
-        "http://localhost:3001/words",
+        "https://63dd3878367aa5a7a40bbb9d.mockapi.io/words",
         {
           method: "POST",
           headers: {
@@ -95,7 +95,7 @@ export default class WordStore {
         this.dataWords = [...newDataWords];
       });
       const response = await fetch(
-        `http://localhost:3001/words/${id}`,
+        `https://63dd3878367aa5a7a40bbb9d.mockapi.io/words/${id}`,
         {
           method: "DELETE",
 					headers: {
@@ -114,9 +114,9 @@ export default class WordStore {
   updateWord = async (id, value) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/words/${id}`,
+        `https://63dd3878367aa5a7a40bbb9d.mockapi.io/words/${id}`,
         {
-          method: "PATCH",
+          method: "PUT",
 					headers: {
             "Content-Type": "application/json",
           },
